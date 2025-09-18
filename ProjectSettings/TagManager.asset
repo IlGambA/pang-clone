@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Wall
   - Ground
+  - Obstacle
+  - Rope
   layers:
   - Default
   - TransparentFX
@@ -16,7 +18,7 @@ TagManager:
   - Character
   - Ball
   - Wall
-  - 
+  - Projectile
   - 
   - 
   - 
