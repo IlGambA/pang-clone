@@ -1,8 +1,11 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerShoot : MonoBehaviour
 {
+    [SerializeField] private Button shootButton;
+    
     [Header("Rope Settings")]
     [SerializeField] private int ropeSegmentsPool = 20;
     [SerializeField] private GameObject headPrefab;
@@ -22,6 +25,13 @@ public class PlayerShoot : MonoBehaviour
     private void Start()
     {
         CreatePool(ropeParent);
+        if (shootButton != null)
+        {
+            shootButton.onClick.AddListener(() => { if (!_isShooting) {
+                    StartCoroutine(ShootRope());
+                }
+            });
+        }
     }
 
     private void CreatePool(GameObject parent)
@@ -40,7 +50,7 @@ public class PlayerShoot : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !_isShooting)
+        if (Input.GetButton("Jump") && !_isShooting)
         {
             StartCoroutine(ShootRope());
         }

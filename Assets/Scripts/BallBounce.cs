@@ -8,18 +8,20 @@ public class BallBounce : MonoBehaviour
     [SerializeField] private float maxHeight = 10f;
     
     [Header("Ball Splitting")]
+    private GameObject _ballParent;
     [SerializeField] private GameObject ballPrefab;
     [SerializeField] private float splitSpeed = 6f;
     [SerializeField] private bool canSplit = true; 
     
-    private Vector3 velocity;
-    private float startY;
+    private Vector3 _velocity;
+    private float _startY;
     private bool _invulnerable = false;
     private float _timeInvulnerable = 1f;
     private void Start()
     {
-        velocity = new Vector3(speed, speed, 0f);
-        startY = transform.position.y;
+        _velocity = new Vector3(speed, speed, 0f);
+        _startY = transform.position.y;
+        _ballParent = GameObject.FindWithTag("BallParent");
       
     }
     
@@ -34,20 +36,20 @@ public class BallBounce : MonoBehaviour
             }
         }
         
-        transform.position += velocity * Time.deltaTime;
-        velocity.y += gravity * Time.deltaTime;
+        transform.position += _velocity * Time.deltaTime;
+        _velocity.y += gravity * Time.deltaTime;
         ClampHeight();
     }
     
     void ClampHeight()
     {
         float currentY = transform.position.y;
-        float maxAllowedY = startY + maxHeight;
+        float maxAllowedY = _startY + maxHeight;
         
         if (currentY > maxAllowedY)
         {
             transform.position = new Vector3(transform.position.x, maxAllowedY, transform.position.z);
-            velocity.y = -Mathf.Abs(velocity.y);
+            _velocity.y = -Mathf.Abs(_velocity.y);
             Debug.Log("Hit max height!");
         }
     }
@@ -75,16 +77,16 @@ public class BallBounce : MonoBehaviour
     
     void BounceHorizontal()
     {
-        velocity.x = -velocity.x;
+        _velocity.x = -_velocity.x;
         Debug.Log("Bounce horizontal");
     }
     
     void BounceVertical()
     {
-        velocity.y = Mathf.Abs(velocity.y);
-        if (velocity.y < speed * 0.5f)
+        _velocity.y = Mathf.Abs(_velocity.y);
+        if (_velocity.y < speed * 0.5f)
         {
-            velocity.y = speed * 0.8f;
+            _velocity.y = speed * 0.8f;
         }
         Debug.Log("Bounce vertical");
     }
@@ -103,7 +105,7 @@ public class BallBounce : MonoBehaviour
         }
         else
         {
-            velocity.y = -velocity.y;
+            _velocity.y = -_velocity.y;
         }
         
         Debug.Log("Bounce from obstacle");
@@ -126,25 +128,25 @@ public class BallBounce : MonoBehaviour
         Vector3 currentPos = transform.position;
         
         // Left Ball
-        GameObject leftBall = Instantiate(ballPrefab, currentPos, Quaternion.identity);
+        GameObject leftBall = Instantiate(ballPrefab, currentPos, Quaternion.identity, _ballParent.transform);
         BallBounce leftScript = leftBall.GetComponent<BallBounce>();
         
         if (leftScript != null)
         {
             leftScript.SetSpeed(-splitSpeed);
             leftScript.maxHeight = maxHeight; 
-            leftScript.startY = currentPos.y;
+            leftScript._startY = currentPos.y;
             leftScript._invulnerable = true;
         }
         
         // Right Ball
-        GameObject rightBall = Instantiate(ballPrefab, currentPos, Quaternion.identity);
+        GameObject rightBall = Instantiate(ballPrefab, currentPos, Quaternion.identity,_ballParent.transform);
         BallBounce rightScript = rightBall.GetComponent<BallBounce>();
         if (rightScript != null)
         {
             rightScript.SetSpeed(splitSpeed);
             rightScript.maxHeight = maxHeight;
-            rightScript.startY = currentPos.y;
+            rightScript._startY = currentPos.y;
             rightScript._invulnerable = true;
         }
         

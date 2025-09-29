@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 5587179060374807452}
   - component: {fileID: 7068194572789637478}
   m_Layer: 9
-  m_Name: Projectile 1
-  m_TagString: Untagged
+  m_Name: RopeTop
+  m_TagString: Rope
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -621493229, guid: 821fc4d231d29ac4abdb4e293030e36e, type: 3}
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 1145430297, guid: 821fc4d231d29ac4abdb4e293030e36e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -107,5 +107,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.24810387, y: 0.6393455, z: 0.2}
-  m_Center: {x: 0.0051986948, y: -0.0016446561, z: 0}
+  m_Size: {x: 0.19630978, y: 0.33694148, z: 0.2}
+  m_Center: {x: 0.00031487644, y: -0.0006701723, z: 0}

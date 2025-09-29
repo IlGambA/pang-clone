@@ -78,8 +78,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 906793796, guid: c63197f01df031146aafead479acf230, type: 3}
+  m_SortingOrder: 3
+  m_Sprite: {fileID: -1842854018, guid: c63197f01df031146aafead479acf230, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -105,9 +105,9 @@ MonoBehaviour:
   speed: 8
   gravity: -15
   maxHeight: 10
-  ballPrefab: {fileID: 0}
+  ballPrefab: {fileID: 1330072285114835023, guid: 10dea3afe2165364183b302d4e578ce8, type: 3}
   splitSpeed: 6
-  canSplit: 0
+  canSplit: 1
 --- !u!54 &4676152988673165149
 Rigidbody:
   m_ObjectHideFlags: 0

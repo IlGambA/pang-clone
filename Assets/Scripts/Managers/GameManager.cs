@@ -4,15 +4,15 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
+    private static GameManager _instance;
     public int currentLevel = 0;
     public int totalScore = 0;
 
     private void Awake()
     {
-        if (Instance == null)
+        if (_instance == null)
         {
-            Instance = this;
+            _instance = this;
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -25,8 +25,4 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(level, LoadSceneMode.Single);
     }
-    
-    
-    
-    
 }

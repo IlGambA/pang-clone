@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Obstacle
   - Rope
+  - BallParent
   layers:
   - Default
   - TransparentFX
@@ -44,6 +45,15 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2363118981
+    locked: 0
+  - name: Game
+    uniqueID: 2179804855
+    locked: 0
+  - name: UI
+    uniqueID: 4238239741
     locked: 0
   m_RenderingLayers:
   - Default
