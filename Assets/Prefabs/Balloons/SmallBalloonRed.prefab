@@ -102,8 +102,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de4a19b6f7576c44ea2c6d76dd6dfeb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amplitude: 2
-  force: 9
+  speed: 8
+  gravity: -15
+  maxHeight: 10
+  ballPrefab: {fileID: 0}
+  splitSpeed: 6
+  canSplit: 0
 --- !u!54 &4676152988673165149
 Rigidbody:
   m_ObjectHideFlags: 0
