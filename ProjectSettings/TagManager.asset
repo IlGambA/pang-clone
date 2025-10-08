@@ -9,6 +9,7 @@ TagManager:
   - Obstacle
   - Rope
   - BallParent
+  - Ball
   layers:
   - Default
   - TransparentFX

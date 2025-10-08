@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
@@ -14,29 +13,27 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField]
     private int nextSceneBuildIndex;
     
-    private GameManager gameManager;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+   // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
         if (startButton)
         {
+            GameManager.instance.playerStats.lives = 10;
             startButton.onClick.AddListener(StartGame);
+            Handheld.Vibrate();
         }
         
         if (quitButton)
         {
             quitButton.onClick.AddListener(QuitGame);
         }
-        
-        gameManager = FindFirstObjectByType<GameManager>();
     }
 
     private void StartGame()
     {
         Debug.Log("Quit Game!");
-        gameManager.currentLevel = nextSceneBuildIndex;
-        gameManager.LoadLevel(nextSceneBuildIndex);
+        GameManager.instance.currentLevel = nextSceneBuildIndex;
+        GameManager.instance.LoadLevel(nextSceneBuildIndex);
     }
     
     

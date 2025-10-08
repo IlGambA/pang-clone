@@ -23,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
     
     private static readonly int PlayerAnimatorWalk = Animator.StringToHash("isWalk");
     private static readonly int PlayerAnimatorDirection = Animator.StringToHash("Direction");
+    public readonly int PlayerAnimatorHurt = Animator.StringToHash("isHurt");
+    
     private void Awake()
     {
         _isWalk = false;
